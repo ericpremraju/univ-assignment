@@ -23,15 +23,21 @@ header
 	display: inline-block;
 	padding: 15px;
 	font-size: 30px;
+	border: none;
 }
 a
 {
 	color: white;
 	border: none;
+	text-decoration: none;
 }
 a:hover
 {
 	color: green;
+}
+.header-right ul li:active
+{
+	border-bottom: 1px solid green;
 }
 
 

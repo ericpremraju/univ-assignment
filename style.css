@@ -7,7 +7,7 @@
 header
 {
 	background: black;
-	display: flex;
+	display: inline-block;
 }
 .header-right
 {
@@ -39,5 +39,12 @@ a:hover
 {
 	border-bottom: 1px solid green;
 }
-
-
+.heading-main
+{
+	text-align: center;
+}
+.main-body p
+{
+	text-align: center;
+	padding: 0 100px;
+}

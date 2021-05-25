@@ -3,6 +3,128 @@
 <head>
 	<title>University Website</title>
 	<link rel="stylesheet" href="style.css">
+	<style>
+		 .container *
+		{
+			box-sizing: border-box;
+		}
+		input[type=text], select, textarea 
+		{
+			width: 100%;
+			padding: 12px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			resize: vertical;
+		}
+		input[type=number], select, textarea 
+		{
+			width: 100%;
+			padding: 12px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			resize: vertical;
+		}		
+		label 
+		{
+			padding: 12px 12px 12px 0;
+			display: inline-block;
+		}		
+		button 
+		{
+			background-color: #04AA6D;
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			
+		}		
+		button:hover 
+		{
+			background-color: #45a049;
+		}		
+		.container 
+		{
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			padding: 20px 100px;
+			margin: 0 50px;
+		}		
+		.col-25 
+		{
+			float: left;
+			width: 25%;
+			margin-top: 6px;
+		}		
+		.col-50 
+		{
+			float: left;
+			width: 50%;
+			margin-top: 6px;
+		}
+		.row:after 
+		{
+			content: "";
+			display: table;
+			clear: both;
+		}
+		.col-25 p
+		{
+			padding: 12px 12px 12px 0;
+			display: inline-block;
+			margin: 0;
+			color: red;
+		}
+		</style>
+		<script>
+			function validateForm()
+			{
+				var x = document.forms["myForm"]["fname"].value;
+				var x1 = document.forms["myForm"]["lname"].value;
+				var x2 = document.forms["myForm"]["email"].value;
+				var x3 = document.forms["myForm"]["phno"].value;
+				var x4 = document.forms["myForm"]["qualify"].value;
+				var y,y1,y2,y3,y4;
+				if(x!="")
+				{
+					y="";
+				}
+				else
+					y="Field Empty";
+				document.getElementById("fname1").innerHTML = y;
+				if(x1!="")
+				{
+					y1="";
+				}
+				else
+					y1="Field Empty";
+				document.getElementById("lname1").innerHTML = y1;
+				if(x2!="")
+				{
+					if(x2.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/))
+						y2=""
+					else
+						y2="Invalid E-mail ID";
+				}
+				else
+					y2="Field Empty";
+				document.getElementById("email1").innerHTML = y2;
+				if(x3=="")
+					y3="Field Empty";
+				else if(isNaN(x3) || x3 < 1 || x3 > 9999999999)
+					y3="Invalid Input";
+				else
+					y3="";
+				document.getElementById("phno1").innerHTML = y3;
+				if(x4!="")
+				{
+					y4="";
+				}
+				else
+					y4="Field Empty";
+				document.getElementById("qualify1").innerHTML = y4;
+			}
+		</script>
 </head>
 <body>
 	<header>
@@ -18,5 +140,93 @@
 			</ul>
 		</div>
 	</header>
+	<!-- Main Body Starts Here-->
+	<div class="heading-main">
+		<h1><u>Registration Form</u></h1>
+	</div>
+	<div class="container">
+		<form name="myForm" method="post">
+			<div class="row">
+				<div class="col-25">
+			  		<label for="fname">First Name</label>
+				</div>
+				<div class="col-25">
+			  		<p id="fname1"></p>
+				</div>
+				<div class="col-50">
+			  		<input type="text" id="fname" name="firstname" placeholder="Your name..">
+				</div>
+		  	</div>
+		  	<div class="row">
+				<div class="col-25">
+			  		<label for="lname">Last Name</label>
+				</div>
+				<div class="col-25">
+					<p id="lname1"></p>
+				</div>
+				<div class="col-50">
+			  		<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+				</div>
+		  	</div>
+		  	<div class="row">
+				<div class="col-25">
+			  		<label for="email">E-Mail ID</label>
+				</div>
+				<div class="col-25">
+					<p id="email1"></p>
+				</div>
+				<div class="col-50">
+			  		<input type="text" id="email" name="emailid" placeholder="Your e-mail ID..">
+				</div>
+		  	</div>
+		  	<div class="row">
+				<div class="col-25">
+			  		<label for="phno">Phone Number</label>
+				</div>
+				<div class="col-25">
+					<p id="phno1"></p>
+				</div>
+				<div class="col-50">
+			  		<input type="text" id="phno" name="phoneno" placeholder="Your phone number..">
+				</div>
+		  	</div>
+			<div class="row">
+				<div class="col-25">
+			  		<label for="qualify">Qualifications</label>
+				</div>
+				<div class="col-25">
+					<p id="qualify1"></p>
+				</div>
+				<div class="col-50">
+			  		<textarea id="qualify" name="qualification" placeholder="Your qualification.." style="height:100px"></textarea>
+				</div>
+		  	</div>
+		  	<div class="row">
+				<div class="col-25">
+			  		<label for="course">Course</label>
+				</div>
+				<div class="col-25">			  		
+				</div>
+				<div class="col-50">
+			  		<select id="course" name="course">
+						<option value="bca">B.C.A.</option>
+						<option value="ba">B.A.</option>
+						<option value="bsc">B.Sc.</option>
+						<option value="bcom">B.Com.</option>
+						<option value="bba">B.B.A.</option>
+			 		</select>
+				</div>
+		  	</div>
+		  	<div class="row" style="text-align: center; padding: 10px;">
+				<button type="button" onclick="validateForm()">Submit</button>
+		  	</div>
+		</form>
+	</div>
+	<div class="contact">
+		<p>
+			For more details please contact our office at <a>1800 690 4200</a>
+		</p>
+	</div>
+	<!--Main Body Ends Here-->
 </body>
 </html>
